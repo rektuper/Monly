@@ -15,7 +15,7 @@
   min-width: 0;
   background: transparent;
   border: none;
-  border-right: 1px solid var(--card-inset-border);
+  border-right: 1px solid color-mix(in srgb, var(--accent) 14%, var(--card-inset-border));
   border-radius: 0;
   box-shadow: none;
 }

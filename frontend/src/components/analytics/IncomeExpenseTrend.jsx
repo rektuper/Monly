@@ -59,7 +59,12 @@ function IncomeExpenseTrend({ transactions }) {
       ) : (
         <div className="trend-chart-wrapper">
           <ResponsiveContainer width="100%" height={280}>
-            <BarChart data={data} barGap={4}>
+            <BarChart
+              data={data}
+              barGap={4}
+              barCategoryGap="16%"
+              margin={{ top: 8, right: 4, left: 0, bottom: 0 }}
+            >
               <XAxis
                 dataKey="label"
                 tick={{ fontSize: 12 }}
@@ -77,12 +82,14 @@ function IncomeExpenseTrend({ transactions }) {
                 name="Доход"
                 fill="var(--chart-income)"
                 radius={[6, 6, 0, 0]}
+                maxBarSize={36}
               />
               <Bar
                 dataKey="expense"
                 name="Расход"
                 fill="var(--chart-expense)"
                 radius={[6, 6, 0, 0]}
+                maxBarSize={36}
               />
             </BarChart>
           </ResponsiveContainer>

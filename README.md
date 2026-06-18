@@ -64,50 +64,27 @@
 
 ### 1. Настроить переменные окружения
 
-В корне проекта создайте файл `.env` (шаблон — `backend/.env.example`):
-
-```env
-# Обязательные
-DB_PASSWORD=your_strong_password
-SECRET_KEY=your_long_random_secret_key
-
-# База данных (значения по умолчанию)
-DB_USER=budget_user
-DB_NAME=smart_budget
-
-# URL фронтенда для CORS и ссылок в письмах
-ALLOWED_ORIGINS=http://localhost:3001
-FRONTEND_URL=http://localhost:3001
-
-# JWT
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=10080
-
-# Почта (нужна для регистрации, смены и сброса пароля)
-SMTP_HOST=smtp.example.com
-SMTP_PORT=587
-SMTP_USER=user@example.com
-SMTP_PASSWORD=app_password
-SMTP_FROM=noreply@example.com
-SMTP_FROM_NAME=МОНЛИ
-SMTP_USE_TLS=true
-SMTP_USE_SSL=false
-
-# Опционально
-VERIFICATION_CODE_EXPIRE_MINUTES=15
-PASSWORD_RESET_EXPIRE_MINUTES=60
-ENABLE_ML_CATEGORIZATION=true
+```bash
+cp .env.example .env
 ```
 
-| Переменная | Описание |
-|------------|----------|
-| `DB_PASSWORD` | Пароль PostgreSQL (**обязательно**) |
-| `SECRET_KEY` | Секрет для подписи JWT (**обязательно**) |
-| `DB_USER`, `DB_NAME` | Пользователь и имя БД (по умолчанию `budget_user`, `smart_budget`) |
-| `ALLOWED_ORIGINS` | Разрешённые origin для CORS (через запятую) |
-| `FRONTEND_URL` | Базовый URL фронтенда — используется в ссылках приглашений и писем |
-| `SMTP_*` | Настройки почтового сервера |
-| `ENABLE_ML_CATEGORIZATION` | Включить ML-категоризацию (`true` / `false`) |
+Windows (PowerShell / cmd):
+
+```bash
+copy .env.example .env
+```
+
+Откройте `.env` и замените значения-заглушки. Подробное описание всех файлов — в разделе [Переменные окружения](#переменные-окружения).
+
+Минимум для Docker:
+
+| Переменная | Что указать |
+|------------|-------------|
+| `DB_PASSWORD` | Надёжный пароль для PostgreSQL |
+| `SECRET_KEY` | Случайная строка ≥ 32 символов |
+| `ALLOWED_ORIGINS` | `http://localhost:3001` |
+| `FRONTEND_URL` | `http://localhost:3001` |
+| `SMTP_*` | Данные почтового сервера (для регистрации и сброса пароля) |
 
 ### 2. Собрать и запустить
 
@@ -157,6 +134,84 @@ docker compose down -v
 | `uploads` | Аватары пользователей |
 | `model_cache` | Кэш pip и загруженных ML-моделей |
 
+## Переменные окружения
+
+В проекте три шаблона — рядом с каждым рабочим `.env`:
+
+| Файл | Назначение | Когда нужен |
+|------|------------|-------------|
+| `.env.example` → `.env` | Docker Compose | `docker compose up` |
+| `backend/.env.example` → `backend/.env` | Локальный FastAPI | `uvicorn` без Docker |
+| `frontend/.env.example` → `frontend/.env` | Локальный Vite | `npm run dev` |
+
+Скопируйте нужный шаблон и отредактируйте значения. Файлы `.env` в git не попадают (см. `.gitignore`).
+
+### Корневой `.env` (Docker)
+
+Используется только `docker-compose.yml`. Переменные `DB_HOST` и `DB_PORT` задавать не нужно — compose прокидывает `db` и `5432` в контейнер backend автоматически.
+
+| Переменная | Обязательно | Как заполнить |
+|------------|:-----------:|---------------|
+| `DB_PASSWORD` | да | Пароль PostgreSQL. Придумайте свой, тот же попадёт в контейнер `db` и `backend` |
+| `SECRET_KEY` | да | Случайная строка для JWT, например `openssl rand -hex 32` |
+| `DB_USER` | нет | Пользователь БД, по умолчанию `budget_user` |
+| `DB_NAME` | нет | Имя БД, по умолчанию `smart_budget` |
+| `ALLOWED_ORIGINS` | нет | URL, с которого открываете сайт. Для Docker: `http://localhost:3001` |
+| `FRONTEND_URL` | нет | Тот же адрес фронтенда — для ссылок в письмах и приглашений в семью |
+| `ALGORITHM` | нет | Алгоритм JWT, по умолчанию `HS256` |
+| `ACCESS_TOKEN_EXPIRE_MINUTES` | нет | Срок жизни токена в минутах (по умолчанию `10080` = 7 дней) |
+| `SMTP_HOST` | для почты | Хост SMTP, например `smtp.yandex.ru` или `smtp.gmail.com` |
+| `SMTP_PORT` | для почты | Порт: `587` (STARTTLS) или `465` (SSL) |
+| `SMTP_USER` | для почты | Логин почтового ящика |
+| `SMTP_PASSWORD` | для почты | Пароль или app-password ящика |
+| `SMTP_FROM` | для почты | Адрес отправителя (часто совпадает с `SMTP_USER`) |
+| `SMTP_FROM_NAME` | нет | Имя в письме, по умолчанию `МОНЛИ` |
+| `SMTP_USE_TLS` | нет | `true` для порта 587 |
+| `SMTP_USE_SSL` | нет | `true` для порта 465 (тогда `SMTP_USE_TLS=false`) |
+| `VERIFICATION_CODE_EXPIRE_MINUTES` | нет | Срок действия OTP при регистрации (по умолчанию `15`) |
+| `PASSWORD_RESET_EXPIRE_MINUTES` | нет | Срок ссылки сброса пароля (по умолчанию `60`) |
+| `ENABLE_ML_CATEGORIZATION` | нет | `true` — ML-категоризация, `false` — только правила |
+
+**Пример SMTP (Yandex):**
+
+```env
+SMTP_HOST=smtp.yandex.ru
+SMTP_PORT=587
+SMTP_USER=you@yandex.ru
+SMTP_PASSWORD=app_password_from_yandex
+SMTP_FROM=you@yandex.ru
+SMTP_USE_TLS=true
+SMTP_USE_SSL=false
+```
+
+### `backend/.env` (локальный бэкенд)
+
+Те же переменные, что в корневом `.env`, плюс подключение к PostgreSQL на вашей машине:
+
+| Переменная | Как заполнить |
+|------------|---------------|
+| `DB_HOST` | `127.0.0.1` — если PostgreSQL установлен локально |
+| `DB_PORT` | `5432` — стандартный порт PostgreSQL |
+| `DB_NAME`, `DB_USER`, `DB_PASSWORD` | Должны совпадать с созданной вами БД |
+| `ALLOWED_ORIGINS` | `http://localhost:5173,http://127.0.0.1:5173` — для Vite dev-сервера |
+| `FRONTEND_URL` | `http://localhost:5173` |
+
+Перед запуском создайте БД в PostgreSQL:
+
+```sql
+CREATE USER budget_user WITH PASSWORD 'your_password';
+CREATE DATABASE smart_budget OWNER budget_user;
+```
+
+### `frontend/.env` (локальный фронтенд)
+
+| Переменная | Обязательно | Как заполнить |
+|------------|:-----------:|---------------|
+| `VITE_API_URL` | да | URL бэкенда без слэша в конце. Локально: `http://127.0.0.1:8000` |
+| `VITE_MEDIA_URL` | нет | Базовый URL для аватаров (`/uploads`). Если не задан — берётся из `VITE_API_URL` |
+
+> Переменные `VITE_*` вшиваются в сборку при `npm run build`. После изменения `.env` перезапустите `npm run dev` или пересоберите образ.
+
 ## Локальная разработка (без Docker)
 
 ### Бэкенд
@@ -171,7 +226,7 @@ pip install torch --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements.txt
 
 cp .env.example .env
-# Отредактируйте .env: DB_HOST=127.0.0.1, SECRET_KEY, DB_PASSWORD и т.д.
+# Отредактируйте backend/.env — см. раздел «Переменные окружения»
 
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
@@ -184,16 +239,8 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 cd frontend
 npm ci
 cp .env.example .env
-```
+# Отредактируйте frontend/.env — VITE_API_URL=http://127.0.0.1:8000
 
-Пример `.env` для локальной разработки:
-
-```env
-VITE_API_URL=http://127.0.0.1:8000
-# VITE_MEDIA_URL=http://127.0.0.1:8000
-```
-
-```bash
 npm run dev
 ```
 
@@ -250,9 +297,11 @@ npm run dev
 ```
 planner/
 ├── docker-compose.yml       # Оркестрация db + backend + web
-├── .env                     # Переменные для Docker Compose (не в git)
+├── .env.example             # Шаблон для Docker Compose
+├── .env                     # Рабочий файл (не в git)
 │
 ├── backend/
+│   ├── .env.example         # Шаблон для локального uvicorn
 │   ├── main.py              # Точка входа FastAPI
 │   ├── database.py          # SQLAlchemy
 │   ├── requirements.txt
@@ -267,6 +316,7 @@ planner/
 │   └── uploads/             # Аватары (том в Docker)
 │
 └── frontend/
+    ├── .env.example         # Шаблон для npm run dev
     ├── Dockerfile           # Сборка + Nginx
     ├── nginx.conf           # Прокси /api и /uploads
     ├── package.json
@@ -311,7 +361,7 @@ planner/
 ## Важные замечания
 
 - **SMTP обязателен** для регистрации с подтверждением email, смены пароля и восстановления доступа. Без настроенной почты эти сценарии вернут ошибку 503.
-- **Не коммитьте** `.env` — файл содержит секреты. Используйте `backend/.env.example` как шаблон.
+- **Не коммитьте** `.env` — только `.env.example`. Скопируйте шаблон и заполните по разделу «Переменные окружения».
 - Лимиты загрузки: PDF до 10 МБ, аватары до 5 МБ (`client_max_body_size 10M` в Nginx).
 - Интерфейс и сообщения API — на русском языке.
 - При ошибке `dockerDesktopLinuxEngine` на Windows убедитесь, что **Docker Desktop запущен** и демон в состоянии *Running*, затем повторите `docker compose up -d --build`.

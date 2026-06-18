@@ -2,15 +2,15 @@ import "../../styles/home/HeroCarousel.css";
 
 const SLIDES = [
   {
-    src: "/demo/wallet.png",
+    src: "/demo/carousel/wallet.png",
     alt: "Кошелёк - баланс и операции",
   },
   {
-    src: "/demo/analytics.png",
+    src: "/demo/carousel/analytics.png",
     alt: "Аналитика - графики и категории",
   },
   {
-    src: "/demo/recommendations.png",
+    src: "/demo/carousel/recommendations.png",
     alt: "Рекомендации и прогноз",
   },
 ];

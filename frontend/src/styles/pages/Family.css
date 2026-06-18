@@ -157,7 +157,8 @@ html[data-theme="dark"] .family-banner {
   color: var(--accent);
 }
 
-.family-chip strong {
+.family-chip strong,
+.family-chip-role {
   font-weight: 700;
   color: var(--text-primary);
 }

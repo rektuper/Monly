@@ -148,23 +148,29 @@
 .burger-btn {
   display: none;
   position: fixed;
-  top: 16px;
-  right: 16px;
+  top: max(16px, env(safe-area-inset-top, 0px));
+  right: max(16px, env(safe-area-inset-right, 0px));
   width: 44px;
   height: 44px;
   border: 1px solid var(--card-border);
   border-radius: var(--radius-sm);
   background: var(--card-bg);
   box-shadow: var(--card-shadow);
-  z-index: 2000;
+  z-index: 2500;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .burger-btn svg {
   font-size: 22px;
   color: var(--text-primary);
+}
+
+.burger-btn--hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .close-sidebar {
@@ -288,8 +294,8 @@ html[data-theme="dark"] .sidebar-mobile-overlay {
 
 @media (max-width: 480px) {
   .burger-btn {
-    top: 12px;
-    right: 12px;
+    top: max(12px, env(safe-area-inset-top, 0px));
+    right: max(12px, env(safe-area-inset-right, 0px));
     width: 42px;
     height: 42px;
   }

@@ -20,6 +20,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { createPortal } from "react-dom";
 
 import {
   useNavigate,
@@ -218,9 +219,14 @@ function Sidebar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const [theme, setTheme] = useState(() => (
     localStorage.getItem("theme") || "light"
   ));
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const {
     user,
@@ -284,17 +290,21 @@ function Sidebar() {
     onLogout: handleLogout,
   };
 
+  const burgerButton = (
+    <button
+      type="button"
+      className={`burger-btn${isOpen ? " burger-btn--hidden" : ""}`}
+      onClick={() => setIsOpen(true)}
+      aria-label="Открыть меню"
+      aria-expanded={isOpen}
+    >
+      <FiMenu />
+    </button>
+  );
+
   return (
     <>
-      <button
-        type="button"
-        className="burger-btn"
-        onClick={() => setIsOpen(true)}
-        aria-label="Открыть меню"
-        aria-expanded={isOpen}
-      >
-        <FiMenu />
-      </button>
+      {isMounted && createPortal(burgerButton, document.body)}
 
       <aside className="sidebar sidebar--desktop">
         <SidebarPanels {...panelProps} showClose={false} />

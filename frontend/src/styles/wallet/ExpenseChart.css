@@ -4,7 +4,6 @@
   padding: 24px;
   flex-shrink: 0;
   box-sizing: border-box;
-  overflow: visible;
 }
 
 .chart-block .featured-card-header {

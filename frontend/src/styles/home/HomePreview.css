@@ -1,0 +1,204 @@
+.home-preview {
+  position: relative;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 12, 22, 0.92) 0%,
+      rgba(12, 18, 32, 0.98) 18%,
+      #0b1220 100%
+    );
+  color: #f8fafc;
+  padding: 88px 24px 100px;
+}
+
+.home-preview-inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.home-preview-eyebrow {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.95);
+}
+
+.home-preview-title {
+  margin: 0 0 16px;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.home-preview-lead {
+  margin: 0 0 48px;
+  max-width: 720px;
+  font-size: clamp(17px, 2.2vw, 20px);
+  line-height: 1.7;
+  color: rgba(226, 232, 240, 0.78);
+}
+
+.home-preview-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.home-preview-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 46%);
+  gap: 32px;
+  align-items: center;
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+}
+
+.home-preview-card--reversed .home-preview-card-copy {
+  order: 2;
+}
+
+.home-preview-card--reversed .home-preview-card-media {
+  order: 1;
+}
+
+.home-preview-card--text-only {
+  grid-template-columns: 1fr;
+  max-width: 720px;
+}
+
+.home-preview-card-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(96, 165, 250, 0.16);
+  color: #93c5fd;
+  font-size: 24px;
+}
+
+.home-preview-card-copy h3 {
+  margin: 0 0 12px;
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: 1.2;
+}
+
+.home-preview-card-copy p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(226, 232, 240, 0.76);
+}
+
+.home-preview-card-media {
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+.home-preview-card-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.home-preview-cta {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.home-preview-cta p {
+  margin: 0 0 20px;
+  font-size: 20px;
+  color: rgba(226, 232, 240, 0.88);
+}
+
+.home-preview-cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.home-preview .join-btn,
+.home-preview .secondary-btn {
+  height: 56px;
+  padding: 0 30px;
+  border-radius: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.home-preview .join-btn {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(96, 165, 250, 0.35),
+    rgba(59, 130, 246, 0.22)
+  );
+  color: white;
+}
+
+.home-preview .secondary-btn {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.home-preview .join-btn:hover,
+.home-preview .secondary-btn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .home-preview-card,
+  .home-preview-card--reversed {
+    grid-template-columns: 1fr;
+  }
+
+  .home-preview-card--reversed .home-preview-card-copy,
+  .home-preview-card--reversed .home-preview-card-media {
+    order: initial;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-preview {
+    padding: 64px 16px 72px;
+  }
+
+  .home-preview-card {
+    padding: 22px 18px;
+    border-radius: 22px;
+  }
+
+  .home-preview-cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home-preview .join-btn,
+  .home-preview .secondary-btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-preview .join-btn:hover,
+  .home-preview .secondary-btn:hover {
+    transform: none;
+  }
+}

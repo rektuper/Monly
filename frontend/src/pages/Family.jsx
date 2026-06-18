@@ -467,8 +467,10 @@ function Family() {
                 {myMember?.family_role && (
                   <span className="family-chip">
                     <FiShield aria-hidden />
-                    <strong>{myMember.family_role}</strong>
-                    <span className="family-chip-muted">· ваша роль</span>
+                    <span className="family-chip-role">
+                      {myMember.family_role.trim()}
+                    </span>
+                    <span className="family-chip-muted">ваша роль</span>
                   </span>
                 )}
 

@@ -26,6 +26,7 @@
 
 .trend-chart-wrapper {
   width: 100%;
+  overflow: visible;
 }
 
 .income-expense-trend .recharts-legend-item-text {
