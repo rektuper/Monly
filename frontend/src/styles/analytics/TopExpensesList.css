@@ -1,0 +1,63 @@
+.top-expenses-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.top-expense-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: var(--card-secondary);
+  border: 1px solid var(--button-bg);
+}
+
+.top-expense-rank {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: rgba(142, 167, 255, 0.18);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.top-expense-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.top-expense-info strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.top-expense-info span {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top-expense-info small {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.top-expense-amount {
+  color: #dc2626;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+}

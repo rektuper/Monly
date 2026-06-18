@@ -1,0 +1,125 @@
+.wallet-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.wallet-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--card-inset-border);
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.wallet-action-btn:hover {
+  background: var(--button-hover);
+}
+
+.wallet-action-btn.primary {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
+
+.wallet-action-btn.primary:hover {
+  background: var(--accent-hover);
+}
+
+.wallet-action-btn span {
+  white-space: nowrap;
+}
+
+/* Hero: balance + goals */
+.wallet-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 16px;
+  margin-bottom: 16px;
+  align-items: stretch;
+}
+
+.wallet-hero .balance-card,
+.wallet-hero .goals-panel {
+  box-shadow: var(--card-shadow);
+}
+
+html[data-theme="dark"] .wallet-hero .balance-card,
+html[data-theme="dark"] .wallet-hero .goals-panel {
+  box-shadow:
+    0 0 0 1px rgba(79, 110, 247, 0.12),
+    0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Body: insights + split row */
+.wallet-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wallet-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.wallet-split > .transactions-block,
+.wallet-split > .top-categories-widget {
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  height: 100%;
+}
+
+@media (max-width: 1100px) {
+  .wallet-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .wallet-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header-actions {
+    width: 100%;
+  }
+
+  .wallet-action-btn {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .wallet-hero,
+  .wallet-body,
+  .wallet-split {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wallet-action-btn {
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .wallet-action-btn span {
+    display: none;
+  }
+
+  .wallet-action-btn svg {
+    font-size: 18px;
+  }
+}

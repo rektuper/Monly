@@ -1,0 +1,408 @@
+.goals-panel {
+  padding: 22px 24px 24px;
+}
+
+.goals-hint {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.goals-hint--short {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.goal-form {
+  display: grid;
+  grid-template-columns: 1fr 140px 48px;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.goal-form input {
+  height: 44px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--card-inset-border);
+  background: var(--card-inset);
+  color: var(--text-primary);
+  padding: 0 14px;
+  font-size: 14px;
+}
+
+.goal-form input:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.goal-form button,
+.goal-form-submit {
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.goal-form button:hover,
+.goal-form-submit:hover {
+  background: var(--accent-hover);
+}
+
+.goal-item {
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: var(--card-inset);
+  border: 1px solid var(--card-inset-border);
+}
+
+.goal-item--wallet {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px;
+}
+
+.goal-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.goal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.goal-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.goal-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.goal-top strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.goal-delete-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.goal-delete-btn:hover {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.goal-amounts {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.goal-current {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.goal-sep {
+  color: var(--text-muted);
+}
+
+.goal-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--button-bg);
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.goal-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.goal-item--done {
+  border-color: rgba(52, 211, 153, 0.25);
+  background: var(--success-soft);
+}
+
+.goal-done-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--success-soft);
+  color: var(--success);
+  font-size: 10px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.goal-deposit-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.goal-deposit-form input {
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--card-inset-border);
+  border-radius: var(--radius-sm);
+  background: var(--card-inset);
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.goal-deposit-form input:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--card-inset-border));
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.goal-deposit-submit {
+  flex-shrink: 0;
+  height: 38px;
+  padding: 0 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.goal-deposit-submit:hover {
+  background: var(--accent-hover);
+}
+
+.goal-deposit-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.goal-deposit-btn {
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid var(--card-inset-border);
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.goal-deposit-btn:hover {
+  background: var(--button-hover);
+  color: var(--text-primary);
+}
+
+.goal-deposit-btn--accent {
+  background: var(--accent-soft);
+  border-color: rgba(79, 110, 247, 0.2);
+  color: var(--accent);
+}
+
+/* Wallet variant */
+.goals-panel--wallet {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.goals-carousel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  min-height: 0;
+}
+
+.goals-carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.goals-carousel-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--card-inset-border);
+  border-radius: var(--radius-sm);
+  background: var(--card-inset);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.goals-carousel-btn:hover:not(:disabled) {
+  background: var(--button-hover);
+}
+
+.goals-carousel-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.goals-carousel-counter {
+  min-width: 52px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.goals-carousel .goal-item--wallet {
+  flex: 1;
+  min-height: 0;
+}
+
+.goals-carousel .goals-empty {
+  margin: auto 0;
+  text-align: center;
+}
+
+.goal-form-wallet {
+  margin-bottom: 12px;
+}
+
+.goal-add-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 40px;
+  border: 1px dashed var(--card-inset-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.goal-add-trigger:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.goal-form--wallet {
+  grid-template-columns: 1fr 100px 40px;
+  margin-bottom: 0;
+}
+
+.goal-form--wallet input {
+  height: 40px;
+  font-size: 13px;
+}
+
+.goal-form--wallet .goal-form-submit {
+  height: 40px;
+}
+
+.goals-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.goals-more-link:hover {
+  color: var(--accent-hover);
+}
+
+/* Progress ring */
+.goal-ring {
+  position: relative;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+}
+
+.goal-ring svg {
+  width: 100%;
+  height: 100%;
+}
+
+.goal-ring-track {
+  stroke: var(--card-inset-border);
+}
+
+.goal-ring-fill {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.3s ease;
+}
+
+.goal-ring--done .goal-ring-fill {
+  stroke: var(--success);
+}
+
+.goal-ring span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.goal-ring--done span {
+  color: var(--success);
+  font-size: 14px;
+}
+
+@media (max-width: 700px) {
+  .goal-form,
+  .goal-form--wallet {
+    grid-template-columns: 1fr;
+  }
+}

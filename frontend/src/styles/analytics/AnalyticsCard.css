@@ -1,0 +1,16 @@
+.analytics-card {
+  padding: 22px 24px 24px;
+}
+
+.analytics-empty {
+  color: var(--text-secondary);
+  font-size: 14px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .analytics-card {
+    padding: 20px;
+  }
+}

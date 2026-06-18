@@ -1,0 +1,42 @@
+.dashboard-content.app-page-panel {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding: 32px 36px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.app-page-panel .page-header-text h1 {
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.app-page-panel .page-header-text p {
+  color: var(--text-secondary);
+}
+
+.app-page-panel .analytics-loading,
+.app-page-panel .recommendations-loading,
+.app-page-panel .settings-loading,
+.app-page-panel .admin-loading-text,
+.app-page-panel .dashboard-loading {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .dashboard-content.app-page-panel {
+    padding: 20px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-content.app-page-panel {
+    padding: 16px 14px;
+  }
+}

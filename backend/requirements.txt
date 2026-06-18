@@ -1,0 +1,19 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg[binary]
+python-dotenv
+python-jose[cryptography]
+passlib[argon2]
+argon2-cffi
+pydantic
+pandas
+pdfplumber
+python-multipart
+
+# AI module (torch CPU ставится в Dockerfile до этого списка)
+rapidfuzz
+sentence-transformers
+scikit-learn
+numpy
+email-validator

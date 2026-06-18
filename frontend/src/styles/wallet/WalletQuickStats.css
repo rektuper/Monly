@@ -1,0 +1,112 @@
+.wallet-metrics-bar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-bottom: 16px;
+  padding: 4px;
+  overflow: hidden;
+}
+
+.wallet-metrics-bar .wallet-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--card-inset-border);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.wallet-metrics-bar .wallet-stat-card:last-child {
+  border-right: none;
+}
+
+.wallet-stat-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background: var(--card-inset);
+  color: var(--text-secondary);
+}
+
+.wallet-stat-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.wallet-stat-content span {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wallet-stat-content strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wallet-stat-card.expense .wallet-stat-icon {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.wallet-stat-card.income .wallet-stat-icon {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.wallet-stat-card.warning .wallet-stat-icon {
+  color: var(--warning);
+  background: rgba(217, 119, 6, 0.12);
+}
+
+@media (max-width: 900px) {
+  .wallet-metrics-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wallet-metrics-bar .wallet-stat-card:nth-child(2) {
+    border-right: none;
+  }
+
+  .wallet-metrics-bar .wallet-stat-card:nth-child(1),
+  .wallet-metrics-bar .wallet-stat-card:nth-child(2) {
+    border-bottom: 1px solid var(--card-inset-border);
+  }
+}
+
+@media (max-width: 480px) {
+  .wallet-metrics-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .wallet-metrics-bar .wallet-stat-card {
+    border-right: none;
+    border-bottom: 1px solid var(--card-inset-border);
+  }
+
+  .wallet-metrics-bar .wallet-stat-card:last-child {
+    border-bottom: none;
+  }
+}

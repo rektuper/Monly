@@ -1,0 +1,214 @@
+.wallet-insights {
+  padding: 22px 24px 24px;
+}
+
+.wallet-insights-body {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.wallet-insights-forecast {
+  padding: 18px 18px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(79, 110, 247, 0.25);
+  background:
+    linear-gradient(
+      160deg,
+      rgba(79, 110, 247, 0.18) 0%,
+      rgba(79, 110, 247, 0.06) 100%
+    );
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+html[data-theme="dark"] .wallet-insights-forecast {
+  background:
+    linear-gradient(
+      160deg,
+      rgba(107, 140, 255, 0.22) 0%,
+      rgba(107, 140, 255, 0.08) 100%
+    );
+  border-color: rgba(107, 140, 255, 0.35);
+}
+
+.wallet-insights-forecast--negative {
+  border-color: rgba(248, 113, 113, 0.35);
+  background:
+    linear-gradient(
+      160deg,
+      rgba(248, 113, 113, 0.16) 0%,
+      rgba(248, 113, 113, 0.05) 100%
+    );
+}
+
+.wallet-insights-forecast-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.wallet-insights-forecast--negative .wallet-insights-forecast-label {
+  color: var(--danger);
+}
+
+.wallet-insights-forecast > strong {
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.wallet-insights-forecast--positive > strong {
+  color: var(--accent);
+}
+
+html[data-theme="dark"] .wallet-insights-forecast--positive > strong {
+  color: #b8c9ff;
+}
+
+.wallet-insights-forecast--negative > strong {
+  color: var(--danger);
+}
+
+.wallet-insights-forecast-note {
+  margin: 0;
+  margin-top: auto;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.wallet-insights-empty {
+  margin: 0;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--card-inset-border);
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.wallet-insights-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 100%;
+}
+
+.wallet-insight-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--card-inset-border);
+  background: var(--card-bg);
+  flex: 1;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+html[data-theme="dark"] .wallet-insight-item {
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+}
+
+.wallet-insight-icon {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.wallet-insight-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.wallet-insight-item.priority-high.type-deficit_recovery,
+.wallet-insight-item.priority-high {
+  border-color: rgba(248, 113, 113, 0.45);
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.wallet-insight-item.priority-high .wallet-insight-icon {
+  background: rgba(248, 113, 113, 0.18);
+  color: var(--danger);
+}
+
+.wallet-insight-item.priority-medium.type-save_opportunity,
+.wallet-insight-item.priority-medium.type-goal_boost,
+.wallet-insight-item.priority-medium.type-create_goal {
+  border-color: rgba(52, 211, 153, 0.4);
+  background: rgba(52, 211, 153, 0.1);
+}
+
+.wallet-insight-item.priority-medium.type-save_opportunity .wallet-insight-icon,
+.wallet-insight-item.priority-medium.type-goal_boost .wallet-insight-icon,
+.wallet-insight-item.priority-medium.type-create_goal .wallet-insight-icon {
+  background: rgba(52, 211, 153, 0.18);
+  color: var(--success);
+}
+
+.wallet-insight-item.priority-medium:not(.type-save_opportunity):not(.type-goal_boost):not(.type-create_goal) {
+  border-color: rgba(107, 140, 255, 0.35);
+  background: rgba(107, 140, 255, 0.1);
+}
+
+.wallet-insight-content strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.wallet-insight-content p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+html[data-theme="dark"] .wallet-insight-content p {
+  color: #cbd5e1;
+}
+
+@media (max-width: 900px) {
+  .wallet-insights-body {
+    grid-template-columns: 1fr;
+  }
+
+  .wallet-insights-forecast > strong {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wallet-insights {
+    padding: 18px 16px 20px;
+  }
+}

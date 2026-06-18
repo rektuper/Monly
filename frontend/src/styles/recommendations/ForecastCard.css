@@ -1,0 +1,123 @@
+.forecast-card {
+  padding: 22px 24px 24px;
+}
+
+.forecast-confidence {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--card-inset);
+  color: var(--text-secondary);
+  border: 1px solid var(--card-inset-border);
+}
+
+.forecast-confidence.confidence-high {
+  background: var(--success-soft);
+  color: var(--success);
+  border-color: rgba(5, 150, 105, 0.2);
+}
+
+.forecast-confidence.confidence-medium {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: rgba(79, 110, 247, 0.2);
+}
+
+.forecast-summary {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+  gap: 10px;
+}
+
+.forecast-item {
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.forecast-item span {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.forecast-item strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.forecast-item.highlight {
+  background:
+    linear-gradient(
+      160deg,
+      rgba(79, 110, 247, 0.18) 0%,
+      rgba(79, 110, 247, 0.06) 100%
+    );
+  border-color: rgba(79, 110, 247, 0.25);
+}
+
+.forecast-item.highlight strong {
+  color: var(--accent);
+  font-size: 24px;
+}
+
+html[data-theme="dark"] .forecast-item.highlight {
+  background:
+    linear-gradient(
+      160deg,
+      rgba(107, 140, 255, 0.22) 0%,
+      rgba(107, 140, 255, 0.08) 100%
+    );
+}
+
+.forecast-trend {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.forecast-trend.trend-up {
+  color: var(--success);
+}
+
+.forecast-trend.trend-down {
+  color: var(--danger);
+}
+
+.forecast-monthly-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 16px !important;
+}
+
+.forecast-income {
+  color: var(--success);
+}
+
+.forecast-expense {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .forecast-confidence {
+    align-self: flex-start;
+  }
+}

@@ -1,0 +1,35 @@
+.dashboard-layout {
+  contain: layout;
+}
+
+.dashboard-content.app-page-panel {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: var(--panel-bg);
+  contain: layout;
+}
+
+.sidebar {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: var(--sidebar-bg);
+}
+
+.analytics-grid > *,
+.recommendations-grid > *,
+.admin-grid > *,
+.admin-ai-layout > *,
+.help-articles-grid > *,
+.wallet-main-grid > *,
+.settings-sections > * {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 280px;
+}
+
+.dashboard-widget-fallback {
+  min-height: 200px;
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  opacity: 0.6;
+}

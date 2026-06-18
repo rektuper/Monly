@@ -1,0 +1,93 @@
+.hero-carousel {
+  width: 52%;
+  max-width: 760px;
+  overflow: hidden;
+  position: relative;
+  contain: layout paint;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+.hero-carousel-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  will-change: transform;
+  animation: hero-carousel-scroll 28s linear infinite;
+}
+
+.hero-carousel-card {
+  flex-shrink: 0;
+  width: min(580px, 44vw);
+  aspect-ratio: 16 / 10;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+.hero-carousel-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+}
+
+@keyframes hero-carousel-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero-carousel {
+    width: 100%;
+    max-width: none;
+    mask-image: none;
+  }
+
+  .hero-carousel-card {
+    width: min(480px, 84vw);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-carousel-card {
+    width: min(300px, 82vw);
+    aspect-ratio: 16 / 11;
+    border-radius: 16px;
+  }
+
+  .hero-carousel-track {
+    gap: 16px;
+    animation-duration: 22s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-carousel-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-carousel {
+    overflow: visible;
+  }
+
+  .hero-carousel-card:nth-child(n + 4) {
+    display: none;
+  }
+}

@@ -1,0 +1,36 @@
+/* Base inset items inside featured cards */
+.surface-inset,
+.forecast-item,
+.recommendation-item,
+.goal-item {
+  background: var(--card-inset);
+  border: 1px solid var(--card-inset-border);
+  border-radius: var(--radius-md);
+}
+
+html[data-theme="dark"] .surface-inset,
+html[data-theme="dark"] .forecast-item,
+html[data-theme="dark"] .recommendation-item,
+html[data-theme="dark"] .goal-item {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.surface-inset--danger,
+.recommendation-item.priority-high {
+  background: var(--danger-soft);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+.surface-section-title {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.surface-section-subtitle {
+  margin: 0 0 20px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}

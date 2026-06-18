@@ -1,0 +1,243 @@
+.chart-block {
+  width: 100%;
+  max-width: 100%;
+  padding: 24px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.chart-block .featured-card-header {
+  align-items: flex-start;
+}
+
+.chart-block .period-filter--chart {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.chart-header h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.chart-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.chart-filters button {
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--card-inset-border);
+  border-radius: 8px;
+  background: var(--card-inset);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.15s;
+  white-space: nowrap;
+}
+
+.chart-filters button:hover {
+  background: var(--button-hover);
+  color: var(--text-primary);
+}
+
+.active-filter {
+  background: var(--accent) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+}
+
+.chart-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: visible;
+}
+
+.chart-empty {
+  margin: 24px 0 8px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.chart-wrapper {
+  width: 100%;
+  min-height: 280px;
+  overflow: visible;
+}
+
+.chart-wrapper .recharts-responsive-container {
+  overflow: visible !important;
+}
+
+.chart-wrapper .recharts-wrapper {
+  overflow: visible !important;
+}
+
+.chart-wrapper .recharts-sector {
+  outline: none;
+  cursor: pointer;
+}
+
+.chart-tooltip {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.chart-tooltip strong {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.chart-tooltip span {
+  color: var(--text-secondary);
+}
+
+.chart-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 240px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.chart-legend::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chart-legend::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 999px;
+}
+
+.legend-item {
+  min-height: 52px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: var(--card-inset);
+  border: 1px solid var(--card-inset-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.legend-item:hover {
+  background: var(--button-bg);
+}
+
+.active-legend {
+  border-color: rgba(79, 110, 247, 0.35);
+  background: var(--accent-soft);
+}
+
+.legend-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-left span {
+  color: var(--text-primary);
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.legend-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.legend-right strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.legend-right small {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.legend-right p {
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+@media (max-width: 768px) {
+  .chart-block {
+    padding: 20px;
+  }
+
+  .chart-block .period-filter--chart {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-block {
+    padding: 16px;
+  }
+
+  .chart-wrapper {
+    min-height: 260px;
+  }
+
+  .legend-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .legend-left,
+  .legend-right {
+    width: auto;
+  }
+
+  .legend-right {
+    text-align: right;
+    margin-left: auto;
+  }
+}

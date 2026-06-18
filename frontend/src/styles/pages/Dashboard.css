@@ -1,0 +1,24 @@
+.dashboard-widgets {
+  display: grid;
+  gap: 16px;
+}
+
+.dashboard-more-link {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dashboard-more-link button {
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+}
+
+.recommendations-grid {
+  display: grid;
+  gap: 16px;
+}

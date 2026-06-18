@@ -1,0 +1,189 @@
+.period-filter {
+  position: relative;
+}
+
+.period-filter-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--radius-sm);
+  background: var(--card-inset);
+  border: 1px solid var(--card-inset-border);
+}
+
+.period-filter-btn {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.15s ease;
+  white-space: nowrap;
+}
+
+.period-filter-btn:hover {
+  color: var(--text-primary);
+}
+
+.period-filter-btn.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(79, 110, 247, 0.28);
+}
+
+
+.period-range-picker {
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+}
+
+.period-range-picker-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.period-range-picker-header svg {
+  color: var(--accent);
+}
+
+.period-range-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.period-range-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.period-range-fields span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.period-range-fields input[type="date"] {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid var(--card-inset-border);
+  border-radius: var(--radius-sm);
+  background: var(--card-inset);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.period-range-fields input[type="date"]:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--card-inset-border));
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.period-range-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.period-range-btn {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--card-inset-border);
+  background: var(--card-inset);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.period-range-btn--primary {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
+
+.period-range-btn--primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.period-range-btn--ghost:hover {
+  background: var(--button-hover);
+}
+
+.period-range-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+html[data-theme="dark"] .period-range-modal-overlay {
+  background: rgba(2, 6, 14, 0.72);
+}
+
+.period-range-modal {
+  width: min(420px, 100%);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+}
+
+.period-range-modal .period-range-picker {
+  box-shadow: var(--card-shadow);
+}
+
+@media (max-width: 640px) {
+  .period-filter-group {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .period-filter-btn {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 7px 8px;
+    font-size: 11px;
+  }
+
+  .period-range-modal-overlay {
+    padding: 12px;
+  }
+
+  .period-range-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .period-range-actions {
+    flex-direction: column-reverse;
+  }
+
+  .period-range-btn {
+    width: 100%;
+  }
+}

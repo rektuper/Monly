@@ -1,0 +1,42 @@
+.income-expense-trend .chart-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.income-expense-trend .chart-filters button {
+  height: 38px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 12px;
+  background: var(--button-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.income-expense-trend .chart-filters button:hover {
+  background: var(--button-hover);
+}
+
+.income-expense-trend .active-filter {
+  background: var(--accent) !important;
+  color: white !important;
+}
+
+.trend-chart-wrapper {
+  width: 100%;
+}
+
+.income-expense-trend .recharts-legend-item-text {
+  color: var(--text-secondary) !important;
+  font-size: 13px;
+}
+
+.income-expense-trend .recharts-default-legend .recharts-legend-item:nth-child(1) .recharts-legend-item-text {
+  color: var(--chart-income) !important;
+}
+
+.income-expense-trend .recharts-default-legend .recharts-legend-item:nth-child(2) .recharts-legend-item-text {
+  color: var(--chart-expense) !important;
+}

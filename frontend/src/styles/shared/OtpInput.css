@@ -1,0 +1,89 @@
+.otp-input {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.otp-cell {
+  position: relative;
+  flex: 1;
+  max-width: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.otp-cell input {
+  width: 100%;
+  height: 54px;
+  border: none;
+  border-radius: 14px;
+  background: var(--card-inset, #f3f4f8);
+  color: var(--text-primary, #0f172a);
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.otp-cell input:focus {
+  background: var(--card-bg, #fff);
+}
+
+.otp-cell.is-active input {
+  background: var(--card-bg, #fff);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent, #4f6ef7) 18%, transparent);
+  transform: translateY(-1px);
+}
+
+.otp-cell.is-filled input {
+  background: color-mix(in srgb, var(--accent, #4f6ef7) 8%, var(--card-bg, #fff));
+}
+
+.otp-bar {
+  width: 100%;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--card-inset-border, #e8ebf2);
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.otp-cell.is-active .otp-bar {
+  background: var(--accent, #4f6ef7);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent, #4f6ef7) 45%, transparent);
+  transform: scaleX(1.04);
+}
+
+.otp-cell.is-filled .otp-bar {
+  background: color-mix(in srgb, var(--accent, #4f6ef7) 55%, var(--card-inset-border, #e8ebf2));
+}
+
+.otp-cell input:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .otp-input {
+    gap: 8px;
+  }
+
+  .otp-cell {
+    max-width: 46px;
+  }
+
+  .otp-cell input {
+    height: 48px;
+    font-size: 24px;
+    border-radius: 12px;
+  }
+}

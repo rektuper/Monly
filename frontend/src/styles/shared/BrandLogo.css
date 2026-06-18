@@ -1,0 +1,74 @@
+.brand-logo-root {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.brand-logo {
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.brand-logo--full {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.brand-logo-root--hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  margin: 0 0 16px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  line-height: 0;
+}
+
+.brand-logo-root--hero .brand-logo--full {
+  width: min(300px, calc(100vw - 120px));
+  max-width: 100%;
+  height: auto;
+}
+
+.brand-logo-root--auth {
+  width: 100%;
+  max-width: 420px;
+}
+
+.brand-logo-root--auth .brand-logo--full {
+  width: min(320px, 80vw);
+}
+
+.brand-logo-root--badge {
+  justify-content: center;
+  width: 100%;
+}
+
+.brand-logo-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 8px 24px rgba(74, 137, 199, 0.18),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.brand-logo--short {
+  width: 42px;
+  height: auto;
+}
+
+.brand-logo-root--auth-panel {
+  margin-bottom: 28px;
+}
